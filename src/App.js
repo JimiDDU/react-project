@@ -9,10 +9,17 @@ import Aboutme from "./components/Aboutme";
 import Aboutwebsite from "./components/Aboutwebsite";
 import UserDetails from "./components/UserDetails";
 import { useParams } from "react-router-dom";
+import { createContext } from "react";
+
+export const Appcontext = createContext();
 
 function App() {
+
+
+  const [jiminame, setjiminame] = useState("jimipatelismyname")
   const { userId } = useParams();
   return (
+    <Appcontext.Provider value={jiminame} >
     <Routes>
       <Route path="/" element={<Home />} >
       </Route>
@@ -24,8 +31,9 @@ function App() {
       </Route>
       <Route path="/contact" element={<Contact />}></Route>
       <Route path="*" element={<Error />} />
-    </Routes>
+    </Routes></Appcontext.Provider>
   );
 }
 
 export default App;
+

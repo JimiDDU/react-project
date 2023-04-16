@@ -1,5 +1,7 @@
 import { color } from "@mui/system";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Appcontext } from "../App";
 
 function Header() {
 
@@ -12,6 +14,8 @@ function Header() {
     };
   };
 
+  const myvalues = useContext(Appcontext)
+
   return (
     <div className="header">
       <div className="appname">MYweb</div>
@@ -20,6 +24,7 @@ function Header() {
           <NavLink style={navLinkStyles} to={'/'}><li>Home</li></NavLink>
           <NavLink style={navLinkStyles} to={'/about'}><li>About</li></NavLink>
           <NavLink style={navLinkStyles} to={'/contact'}><li>Contact</li></NavLink>
+          <li>{myvalues}</li>
         </ul>
       </div>
     </div>
